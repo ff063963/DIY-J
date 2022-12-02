@@ -164,7 +164,7 @@ public class VodController extends BaseController {
             mHandler.postDelayed(this, 1000);
         }
     };
-<!--
+
     //private Runnable myRunnable2 = new Runnable() {
       //  @Override
        // public void run() {
@@ -181,7 +181,6 @@ public class VodController extends BaseController {
       //      mHandler.postDelayed(this, 1000);
     //    }
    // };
--->
 
 
 
