@@ -18,7 +18,7 @@ jobs:
         run: git clone -b main --depth=1 https://github.com/q215613905/TVBoxOS
       - name: DIY
         run: |
-          chmod +x diy-俊.sh
+          chmod +x diy-j.sh
           bash ${{ github.workspace }}/diy-J.sh
       - name: Build With Gradle
         run: |
