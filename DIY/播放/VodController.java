@@ -140,7 +140,7 @@ public class VodController extends BaseController {
     int videoPlayState = 0;
     
      //增加完结时间
-    private Runnable myRunnable3 = new Runnable() {
+    private Runnable myRunnable2 = new Runnable() {
         @Override
         public void run() {
         Date date = new Date();
@@ -164,9 +164,9 @@ public class VodController extends BaseController {
             mHandler.postDelayed(this, 1000);
         }
     };
-
-    private Runnable myRunnable2 = new Runnable() {
-        @Override
+<!--
+    //private Runnable myRunnable2 = new Runnable() {
+      //  @Override
         public void run() {
             Date date = new Date();
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -179,9 +179,9 @@ public class VodController extends BaseController {
             mVideoSize.setText("[ " + width + " X " + height +" ]");
 
             mHandler.postDelayed(this, 1000);
-        }
-    };
-
+    //    }
+   // };
+-->
 
 
 
