@@ -19,7 +19,7 @@ jobs:
       - name: DIY
         run: |
           chmod +x diy-j.sh
-          bash ${{ github.workspace }}/diy-J.sh
+          bash ${{ github.workspace }}/diy-j.sh
       - name: Build With Gradle
         run: |
           num=$(find ${{ github.workspace }} -name gradlew  | awk -F"/" '{print NF-1}')
@@ -36,5 +36,5 @@ jobs:
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: 影视Box
+          name: 糖果
           path: ${{ github.workspace }}/apk/*
