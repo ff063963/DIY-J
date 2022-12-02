@@ -20,9 +20,25 @@ echo "RELEASE_KEY_ALIAS=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
+#图标修改
+cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
+cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhdpi/app_icon.png
+cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxhdpi/app_icon.png
+mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
+
+#主页微调
+
+#背景修改
+cp $CURRENT_DIR/DIY/.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
+
+# 默认设置
+cp $CURRENT_DIR/DIY/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java  
+
+#自定义epg
+cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
+
 
 //设置界面修改
-
 cp $CURRENT_DIR/DIY/设置/ModelSettingFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
 cp $CURRENT_DIR/DIY/设置/fragment_model.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 
@@ -35,34 +51,15 @@ sed -i 's/6666/部分UI修改，播放器默认修改为EXO播放,增加外置�
 #播放界面修改
 cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
-mv $CURRENT_DIR/DIY/播放/shape_dialog_top_bg.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_top_bg.xml
-mv $CURRENT_DIR/DIY/播放/play_mobile_center_shape.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/play_mobile_center_shape.xml
+#mv $CURRENT_DIR/DIY/播放/shape_dialog_top_bg.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_top_bg.xml
+#mv $CURRENT_DIR/DIY/播放/play_mobile_center_shape.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/play_mobile_center_shape.xml
+#cp $CURRENT_DIR/DIY/播放/PlayerHelper.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/PlayerHelper.java
+
 #播放界面增加外部播放器
 cp $CURRENT_DIR/DIY/播放/PlayFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/PlayFragment.java
 
 //通用
 cp $CURRENT_DIR/DIY/HawkConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
-
-//播放界面修改
-cp $CURRENT_DIR/DIY/播放/PlayerHelper.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/PlayerHelper.java
-
-#图标修改
-cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
-cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhdpi/app_icon.png
-cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxhdpi/app_icon.png
-mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
-
-
-
-
-# 默认设置
-cp $CURRENT_DIR/DIY/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java  
-
-#自定义epg
-cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
-
-#背景修改
-cp $CURRENT_DIR/DIY/.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
 
 #首页排版边框
 sed -i 's/vs_30/vs_15/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
@@ -86,6 +83,7 @@ sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xm
 #版本号
 sed -i 's/1.0.0/1.4.0/g' $CURRENT_DIR/$DIR/app/build.gradle
 sed -i 's/1.0.0/1.4.0/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
+
 #共存
 sed -i 's/com.github.tvbox.osc/com.tvbox.q/g' $CURRENT_DIR/$DIR/app/build.gradle
 
