@@ -50,29 +50,9 @@ import xyz.doikki.videoplayer.util.PlayerUtils;
 
 import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
 
-import java.util.Arrays;
-import com.github.tvbox.osc.ui.fragment.PlayFragment;
-
-//import com.github.tvbox.osc.ui.fragment.PlayerFragment;
-
 public class VodController extends BaseController {
-     private PlayFragment PlayFragment;
-    private ParseAdapter parseAdapter;
-   // private JsonObject progressData = new JsonObject();
-    private boolean isControllerLock = false;
-    private boolean isShowingLocker = false;
-    private int deviceType = 0;
-    private boolean enabledWebRemote = true;
-     
-    private LinearLayout thirdPartyPlayLayout;  
-    private TextView thirdPartyPlayer;
-     
     public VodController(@NonNull @NotNull Context context) {
         super(context);
-      this.PlayFragment = PlayFragment;
-       // deviceType = Hawk.get(HawkConfig.TV_TYPE, 0);
-       // enabledWebRemote = Hawk.get(HawkConfig.REMOTE_CONTROL, true);
-        
         mHandlerCallback = new HandlerCallback() {
             @Override
             public void callback(Message msg) {
@@ -87,20 +67,13 @@ public class VodController extends BaseController {
                     }
                     case 1002: { // 显示底部菜单
                         mBottomRoot.setVisibility(VISIBLE);
-                        mTopRoot.setVisibility(VISIBLE);
                         mTopRoot1.setVisibility(VISIBLE);
                         mTopRoot2.setVisibility(VISIBLE);
-                        mCenterContainer.setVisibility(VISIBLE);
-                        mPlayTitle.setVisibility(VISIBLE);
-                        mPlayTitle1.setVisibility(VISIBLE);
+                        mPlayTitle.setVisibility(GONE);
                         mNextBtn.requestFocus();
                         break;
                     }
                     case 1003: { // 隐藏底部菜单
-                        mPlayTitle.setVisibility(GONE);
-                        mPlayTitle1.setVisibility(GONE);
-                        mCenterContainer.setVisibility(GONE);
-                        mTopRoot.setVisibility(GONE);
                         mBottomRoot.setVisibility(GONE);
                         mTopRoot1.setVisibility(GONE);
                         mTopRoot2.setVisibility(GONE);
@@ -146,23 +119,12 @@ public class VodController extends BaseController {
     TextView mPlayerIJKBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
-    
     TextView finishAt;
-    TextView btnHint;
-    TextView mPlayerFFwd;
-    float mSpeed;
-    ImageView tvBack;
-    LinearLayout mTopRoot;
-    TextView m3rdPlayerBtn;
-    TextView mPlayerSj;
-          
+    
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
     public TextView mPlayerTimeSkipBtn;
     public TextView mPlayerTimeResetBtn;
-    
-    private LinearLayout mCenterContainer;
-    
     TextView mPlayPauseTime;
     TextView mPlayLoadNetSpeed;
     TextView mVideoSize;
@@ -173,14 +135,11 @@ public class VodController extends BaseController {
 
     Handler myHandle;
     Runnable myRunnable;
-    int myHandleSeconds = 10000;//闲置多少毫秒秒关闭底栏  默认6秒
+    int myHandleSeconds = 6000;//闲置多少毫秒秒关闭底栏  默认6秒
 
     int videoPlayState = 0;
-
     
-    
-    
-    //增加完结时间
+     //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
         @Override
         public void run() {
@@ -206,19 +165,27 @@ public class VodController extends BaseController {
         }
     };
 
-  
-  //增加背景
-     void showBtnHint(View focusedView) {
-        long postDelay = 300;
-        if(btnHint.getVisibility() == VISIBLE) {
-            btnHint.clearAnimation();
-            btnHint.animate().alpha(0).setDuration(300).start();
-        } else {
-        
+    private Runnable myRunnable2 = new Runnable() {
+        @Override
+        public void run() {
+            Date date = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+            mPlayPauseTime.setText(timeFormat.format(date));
+            String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
+            mPlayLoadNetSpeedRightTop.setText(speed);
+            mPlayLoadNetSpeed.setText(speed);
+            String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
+            String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
+            mVideoSize.setText("[ " + width + " X " + height +" ]");
+
+            mHandler.postDelayed(this, 1000);
         }
     };
 
-    
+
+
+
+
     @Override
     protected void initView() {
         super.initView();
@@ -236,13 +203,12 @@ public class VodController extends BaseController {
         mTopRoot2 = findViewById(R.id.tv_top_r_container);
         mParseRoot = findViewById(R.id.parse_root);
         mGridView = findViewById(R.id.mGridView);
-        //mPlayerRetry = findViewById(R.id.play_retry);
+        mPlayerRetry = findViewById(R.id.play_retry);
         mPlayrefresh = findViewById(R.id.play_refresh);
         mNextBtn = findViewById(R.id.play_next);
         mPreBtn = findViewById(R.id.play_pre);
         mPlayerScaleBtn = findViewById(R.id.play_scale);
         mPlayerSpeedBtn = findViewById(R.id.play_speed);
-         
         mPlayerBtn = findViewById(R.id.play_player);
         mPlayerIJKBtn = findViewById(R.id.play_ijk);
         mPlayerTimeStartEndText = findViewById(R.id.play_time_start_end_text);
@@ -256,16 +222,7 @@ public class VodController extends BaseController {
         mZimuBtn = findViewById(R.id.zimu_select);
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
-   
-    mCenterContainer = findViewById(R.id.center_container);     
-    finishAt = findViewById(R.id.tv_finish_at);
-    mPlayerFFwd = findViewById(R.id.play_ff);
-    mTopRoot = findViewById(R.id.top_container);
-    mPlayerSj = findViewById(R.id.tv_info_sj);
-     //btnHint = findViewById(R.id.play_btn_hint);   
-        
- //tvBack = findViewById(R.id.tv_back);
-        
+        finishAt = findViewById(R.id.tv_finish_at);
         initSubtitleInfo();
 
         myHandle = new Handler();
@@ -335,7 +292,6 @@ public class VodController extends BaseController {
                 mControlWrapper.startFadeOut();
             }
         });
-        /*
         mPlayerRetry.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -343,7 +299,6 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
-        */
         mPlayrefresh.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -351,9 +306,6 @@ public class VodController extends BaseController {
                 hideBottom();
             }
         });
-        
-    
-        
         mNextBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -376,7 +328,7 @@ public class VodController extends BaseController {
                 try {
                     int scaleType = mPlayerConfig.getInt("sc");
                     scaleType++;
-                    if (scaleType > 3)
+                    if (scaleType > 5)
                         scaleType = 0;
                     mPlayerConfig.put("sc", scaleType);
                     updatePlayerCfgView();
@@ -394,10 +346,8 @@ public class VodController extends BaseController {
                 myHandle.postDelayed(myRunnable, myHandleSeconds);
                 try {
                     float speed = (float) mPlayerConfig.getDouble("sp");
-                    speed += 0.25f;
-                     if (speed > 3)
-                         speed += 0.25f;
-                    if (speed > 5)
+                    speed += 0.5f;
+                    if (speed > 3)
                         speed = 0.5f;
                     mPlayerConfig.put("sp", speed);
                     updatePlayerCfgView();
@@ -425,32 +375,7 @@ public class VodController extends BaseController {
                 return true;
             }
         });
-        
-      
-              // Button : Fast Forward (added by takagen99) 快进---------------------
-
-        mPlayerFFwd.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mSpeed == 3.0f) {
-                    mSpeed = 1.0f;
-
-                } else {
-                    mSpeed = 3.0f;
-
-                }
-                setPlaySpeed(mSpeed);
-            }
-        });
-        
-   
-
-         
-      
-
-         
-         
-                 mPlayerBtn.setOnClickListener(new OnClickListener() {
+        mPlayerBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 myHandle.removeCallbacks(myRunnable);
@@ -545,10 +470,6 @@ public class VodController extends BaseController {
                 return true;
             }
         });
-         
-         
-         
-         
         mPlayerIJKBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -595,6 +516,7 @@ public class VodController extends BaseController {
                 }
             }
         });
+      
         mPlayerTimeStartBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -704,10 +626,6 @@ public class VodController extends BaseController {
             }
         }
     }
-     
-     
-     
-   
 
     void setLandscapePortrait() {
         int requestedOrientation = mActivity.getRequestedOrientation();
@@ -765,7 +683,6 @@ public class VodController extends BaseController {
 
     public void setUrlTitle(String playTitleInfo) {
         mPlayTitle.setText(playTitleInfo);
-                mPlayTitle1.setText(playTitleInfo);
     }
 
     public void resetSpeed() {
@@ -899,7 +816,6 @@ public class VodController extends BaseController {
                 mTopRoot1.setVisibility(GONE);
                 mTopRoot2.setVisibility(GONE);
                 mPlayTitle.setVisibility(VISIBLE);
-                mPlayTitle1.setVisibility(VISIBLE);
                 break;
             case VideoView.STATE_ERROR:
                 listener.errReplay();
@@ -923,11 +839,8 @@ public class VodController extends BaseController {
 
     boolean isBottomVisible() {
         return mBottomRoot.getVisibility() == VISIBLE;
-         // return mTopRoot.getVisibility() == VISIBLE;
     }
 
-
-    
     void showBottom() {
         mHandler.removeMessages(1003);
         mHandler.sendEmptyMessage(1002);
@@ -938,17 +851,6 @@ public class VodController extends BaseController {
         mHandler.sendEmptyMessage(1003);
     }
 
-         void setPlaySpeed(float value) {
-        try {
-            mPlayerConfig.put("sp", value);
-            updatePlayerCfgView();
-            listener.updatePlayerCfg();
-            mControlWrapper.setSpeed(value);
-        } catch (JSONException err) {
-            err.printStackTrace();
-        }
-    }
-    
     @Override
     public boolean onKeyEvent(KeyEvent event) {
         myHandle.removeCallbacks(myRunnable);
@@ -1001,7 +903,7 @@ public class VodController extends BaseController {
             fromLongPress = true;
             try {
                 speed_old = (float) mPlayerConfig.getDouble("sp");
-                float speed = 3.0f;
+                float speed = 2.0f;
                 mPlayerConfig.put("sp", speed);
                 updatePlayerCfgView();
                 listener.updatePlayerCfg();
@@ -1045,11 +947,6 @@ public class VodController extends BaseController {
         return true;
     }
 
-     
-
-     
-     
-     
     @Override
     public boolean onBackPressed() {
         if (super.onBackPressed()) {
