@@ -200,7 +200,7 @@ public class VodController extends BaseController {
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
             
             mVideoSize.setText( "" + width + " X " + height +"" );
-            finishAt.setText("End at：" + onlyTimeFormat.format(endTime));
+            finishAt.setText("Ends at：" + onlyTimeFormat.format(endTime));
 
             mHandler.postDelayed(this, 1000);
         }
