@@ -147,8 +147,8 @@ public class VodController extends BaseController {
          @SuppressLint("SimpleDateFormat")
   
 
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-              SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("HH:mm:ss");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
+              SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
                 long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
                 Date endTime = new Date(date.getTime() + remainTime);
             mPlayPauseTime.setText(timeFormat.format(date));
