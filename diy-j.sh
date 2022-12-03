@@ -43,14 +43,14 @@ cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data
 
 
 //设置界面修改
-cp $CURRENT_DIR/DIY/设置/ModelSettingFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
-cp $CURRENT_DIR/DIY/设置/fragment_model.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
+#cp $CURRENT_DIR/DIY/设置/ModelSettingFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
+#cp $CURRENT_DIR/DIY/设置/fragment_model.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
 
 //增加版本 更新说明
-mv $CURRENT_DIR/DIY/设置/VersionDialog.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/VersionDialog.java
-mv $CURRENT_DIR/DIY/设置/VersionDialog.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/VersionDialog.java
-mv $CURRENT_DIR/DIY/设置/dialog_version.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
-sed -i 's/6666/部分UI修改，播放器默认修改为EXO播放,增加外置播放器方式/g'   $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
+#mv $CURRENT_DIR/DIY/设置/VersionDialog.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/VersionDialog.java
+#mv $CURRENT_DIR/DIY/设置/VersionDialog.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/dialog/VersionDialog.java
+#mv $CURRENT_DIR/DIY/设置/dialog_version.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
+#sed -i 's/6666/部分UI修改，播放器默认修改为EXO播放,增加外置播放器方式/g'   $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
 
 #播放界面修改
 cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
