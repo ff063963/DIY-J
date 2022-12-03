@@ -87,7 +87,6 @@
             android:layout_marginRight="@dimen/vs_24"
             android:textColor="@android:color/white"     
             android:textSize="@dimen/ts_20" />
-            android:text="00:00 AM"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="3"
