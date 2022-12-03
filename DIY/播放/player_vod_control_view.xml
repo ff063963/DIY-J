@@ -69,7 +69,6 @@
             android:paddingRight="@dimen/vs_20"
             android:tag="vod_control_pause_time"
             android:text="00:00 AM"
-            android:fontFamily="@layout/advent_pro_extralight"
             android:textColor="@android:color/white"
             android:textSize="@dimen/ts_30" />
             android:shadowDx="0"
@@ -86,8 +85,7 @@
             android:focusableInTouchMode="false"
             android:maxLines="1"
             android:layout_marginRight="@dimen/vs_24"
-            android:textColor="@android:color/white"
-            android:fontFamily="@layout/advent_pro_extralight"      
+            android:textColor="@android:color/white"     
             android:textSize="@dimen/ts_20" />
             android:text="00:00 AM"
             android:shadowDx="0"
