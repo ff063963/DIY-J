@@ -55,6 +55,7 @@ sed -i 's/6666/部分UI修改，播放器默认修改为EXO播放,增加外置�
 #播放界面修改
 cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
+mv $CURRENT_DIR/DIY/advent_pro_extralight.ttf  $CURRENT_DIR/$DIR/app/src/main/res/layout/advent_pro_extralight.ttf
 #mv $CURRENT_DIR/DIY/播放/shape_dialog_top_bg.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_top_bg.xml
 #mv $CURRENT_DIR/DIY/播放/play_mobile_center_shape.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/play_mobile_center_shape.xml
 #cp $CURRENT_DIR/DIY/播放/PlayerHelper.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/PlayerHelper.java
