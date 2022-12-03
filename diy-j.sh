@@ -20,6 +20,9 @@ echo "RELEASE_KEY_ALIAS=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
+#名称修改
+sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+
 #图标修改
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-hdpi/app_icon.png
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhdpi/app_icon.png
@@ -53,9 +56,8 @@ cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data
 #sed -i 's/6666/部分UI修改，播放器默认修改为EXO播放,增加外置播放器方式/g'   $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_version.xml
 
 #播放界面修改
-cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
-cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
-#mv $CURRENT_DIR/DIY/advent_pro_extralight.ttf  $CURRENT_DIR/$DIR/app/src/main/res/layout/advent_pro_extralight.ttf
+#cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
+#cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
 #mv $CURRENT_DIR/DIY/播放/shape_dialog_top_bg.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_top_bg.xml
 #mv $CURRENT_DIR/DIY/播放/play_mobile_center_shape.xml  $CURRENT_DIR/$DIR/app/src/main/res/drawable/play_mobile_center_shape.xml
 #cp $CURRENT_DIR/DIY/播放/PlayerHelper.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/PlayerHelper.java
@@ -64,13 +66,13 @@ cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/jav
 #cp $CURRENT_DIR/DIY/播放/PlayFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/PlayFragment.java
 
 //通用
-cp $CURRENT_DIR/DIY/HawkConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
+#cp $CURRENT_DIR/DIY/HawkConfig.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/HawkConfig.java
 
 #首页排版边框
-sed -i 's/vs_30/vs_15/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
+#sed -i 's/vs_30/vs_15/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/dialog_select.xml
 
 #增加听书嗅探
-sed -i 's/|mp4|/|mp4|mp3|m4a|p2p|/'g $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/DefaultConfig.java
+#sed -i 's/|mp4|/|mp4|mp3|m4a|p2p|/'g $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/util/DefaultConfig.java
 
 #修改进度条消失时间
 sed -i 's/10000/6000/g'  $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
@@ -82,8 +84,7 @@ sed -i 's/color_BBFFFFFF/color_FFFFFF/g' $CURRENT_DIR/$DIR/app/src/main/java/com
 #进度条颜色
 sed -i 's/color_353744/color_1890FF/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_player_control_vod_seek.xml
 
-#名称修改
-sed -i 's/TVBox/糖果TV/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
+
 
 #版本号
 sed -i 's/1.0.0/1.4.0/g' $CURRENT_DIR/$DIR/app/build.gradle
