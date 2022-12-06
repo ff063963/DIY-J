@@ -119,8 +119,6 @@ public class VodController extends BaseController {
     TextView mPlayerIJKBtn;
     TextView mPlayerRetry;
     TextView mPlayrefresh;
-    TextView finishAt;
-    
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
     public TextView mPlayerTimeSkipBtn;
@@ -135,54 +133,28 @@ public class VodController extends BaseController {
 
     Handler myHandle;
     Runnable myRunnable;
-    int myHandleSeconds = 6000;//闲置多少毫秒秒关闭底栏  默认6秒
+    int myHandleSeconds = 10000;//闲置多少毫秒秒关闭底栏  默认10秒
 
     int videoPlayState = 0;
-    
-     //增加完结时间
-    private Runnable myRunnable2 = new Runnable() {
-        @Override
-        public void run() {
-        Date date = new Date();
-         @SuppressLint("SimpleDateFormat")
-  
 
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
-              SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
-                long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
-                Date endTime = new Date(date.getTime() + remainTime);
+    private Runnable myRunnable2 = new Runnable() {
+       @Override
+       public void run() {
+            Date date = new Date();
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm aa", Locale.ENGLISH);
+            long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
+            Date endTime = new Date(date.getTime() + remainTime);
             mPlayPauseTime.setText(timeFormat.format(date));
             String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
             mPlayLoadNetSpeedRightTop.setText(speed);
             mPlayLoadNetSpeed.setText(speed);
             String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
             String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-            
-            mVideoSize.setText( "" + width + " X " + height +"" );
-            finishAt.setText("Ends at：" + onlyTimeFormat.format(endTime));
-
+            mVideoSize.setText("[ " + width + " X " + height +" ]");
+            finishAt.setText("Ends at：" + onlyTimeFormat.format(endTime));  
             mHandler.postDelayed(this, 1000);
         }
     };
-
-    //private Runnable myRunnable2 = new Runnable() {
-      //  @Override
-       // public void run() {
-         //   Date date = new Date();
-         //   SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-          //  mPlayPauseTime.setText(timeFormat.format(date));
-         //   String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
-          //  mPlayLoadNetSpeedRightTop.setText(speed);
-        //    mPlayLoadNetSpeed.setText(speed);
-      //      String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
-    //        String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-  //          mVideoSize.setText("[ " + width + " X " + height +" ]");
-//
-      //      mHandler.postDelayed(this, 1000);
-    //    }
-   // };
-
-
 
 
     @Override
@@ -221,7 +193,7 @@ public class VodController extends BaseController {
         mZimuBtn = findViewById(R.id.zimu_select);
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
-        finishAt = findViewById(R.id.tv_finish_at);
+
         initSubtitleInfo();
 
         myHandle = new Handler();
