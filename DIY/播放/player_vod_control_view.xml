@@ -75,21 +75,21 @@
             android:shadowDy="0"
             android:shadowRadius="3"
         
-        <TextView
-            android:id="@+id/tv_finish_at"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"       
-            android:ellipsize="end"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:maxLines="1"
-            android:layout_marginRight="@dimen/vs_24"
-            android:textColor="@android:color/white"     
-            android:textSize="@dimen/ts_20" />
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
+//       <TextView
+//            android:id="@+id/tv_finish_at"
+//            android:layout_width="wrap_content"
+//            android:layout_height="wrap_content"
+//            android:layout_gravity="left"       
+//            android:ellipsize="end"
+//            android:focusable="false"
+//            android:focusableInTouchMode="false"
+//            android:maxLines="1"
+//            android:layout_marginRight="@dimen/vs_24"
+//            android:textColor="@android:color/white"     
+//            android:textSize="@dimen/ts_20" />
+//            android:shadowDx="0"
+//            android:shadowDy="0"
+//            android:shadowRadius="3"
 
         <TextView
             android:id="@+id/tv_play_load_net_speed_right_top"
