@@ -21,7 +21,7 @@ echo "RELEASE_STORE_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 
 #字体
-mv $CURRENT_DIR/DIY/设置/advent_pro_extralight.ttf $CURRENT_DIR/$DIR/app/src/main/res/drawable/advent_pro_extralight.ttf
+mv $CURRENT_DIR/DIY/设置/advent_pro_extralight.ttf $CURRENT_DIR/$DIR/app/src/main/res/font/advent_pro_extralight.ttf
 
 #版本号
 sed -i 's/1.0.0/1.1.0/g' $CURRENT_DIR/$DIR/app/build.gradle
