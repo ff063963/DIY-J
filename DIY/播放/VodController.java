@@ -42,7 +42,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Locale;
 import java.util.Date;
 
 import xyz.doikki.videoplayer.player.VideoView;
@@ -145,8 +145,8 @@ public class VodController extends BaseController {
          public void run() {
          Date date = new Date();
          @SuppressLint("SimpleDateFormat")
-         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-         SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm:ss");
+         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
+         SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
          long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
          Date endTime = new Date(date.getTime() + remainTime);
          mPlayPauseTime.setText(timeFormat.format(date));
