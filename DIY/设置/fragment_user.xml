@@ -254,12 +254,15 @@
                     android:textSize="@dimen/ts_30" />
 
             </LinearLayout>
+            
            <LinearLayout
                 android:id="@+id/tvSetting"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="@dimen/vs_80"
                 android:layout_gravity="left"
-                android:layout_margin="@dimen/vs_5"
+                android:layout_marginStart="@dimen/vs_20"
+                android:layout_marginLeft="@dimen/vs_20"
+                android:layout_marginTop="@dimen/vs_10"
                 android:background="@drawable/shape_user_focus"
 
                 <ImageView
