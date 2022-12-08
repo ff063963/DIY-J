@@ -55,7 +55,7 @@
         tools:visibility="visible"
         android:layout_gravity="right"
         android:layout_marginRight="@dimen/vs_20"
-        android:layout_marginBottom="@dimen/vs_100"
+        android:layout_marginTop="@dimen/vs_100"
         android:orientation="vertical">
 
         <TextView
