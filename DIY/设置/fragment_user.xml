@@ -255,39 +255,7 @@
 
             </LinearLayout>
             
-           <LinearLayout
-                android:id="@+id/tvSetting"
-                android:layout_width="160dp"
-                android:layout_height="@dimen/vs_80"
-                android:layout_gravity="left"
-                android:layout_marginStart="@dimen/vs_20"
-                android:layout_marginLeft="@dimen/vs_20"
-                android:layout_marginTop="@dimen/vs_10"
-                android:background="@drawable/shape_user_focus"
-
-                <ImageView
-                    android:layout_width="@dimen/vs_40"
-                    android:layout_height="@dimen/vs_40"
-                    android:layout_gravity="center"
-                    android:alpha="0.75"
-                    android:src="@drawable/icon_setting" />
-
-                <TextView
-                    android:id="@+id/tvSetting"      
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/vs_10"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:gravity="center"
-                    android:text="设置"
-                    android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
-                    android:textSize="@dimen/ts_30" />
-
-            </LinearLayout>     
- 
+          
             
         </LinearLayout>
         
