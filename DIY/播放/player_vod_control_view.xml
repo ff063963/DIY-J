@@ -67,9 +67,10 @@
             android:maxLines="1"
             android:paddingTop="@dimen/vs_20"
             android:paddingRight="@dimen/vs_20"
-            android:tag="vod_control_pause_time"
+            android:tag="vod_control_pause_time"            
             android:text="00:00 AM"
             android:textColor="@android:color/white"
+            android:fontFamily="@font/advent_pro_extralight"       
             android:textSize="@dimen/ts_30" />
             android:shadowDx="0"
             android:shadowDy="0"
@@ -85,7 +86,8 @@
             android:focusableInTouchMode="false"
             android:maxLines="1"
             android:layout_marginRight="@dimen/vs_24"
-            android:textColor="@android:color/white"     
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/advent_pro_extralight"      
             android:textSize="@dimen/ts_20" />
             android:shadowDx="0"
             android:shadowDy="0"
@@ -101,6 +103,7 @@
             android:paddingRight="@dimen/vs_20"
             android:tag="vod_control_pause_time"
             android:text="0Kbps"
+            android:fontFamily="@font/advent_pro_extralight"       
             android:textColor="@android:color/white"
             android:textSize="@dimen/ts_20" />
             android:shadowDx="0"
