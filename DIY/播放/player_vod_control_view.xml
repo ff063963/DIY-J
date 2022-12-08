@@ -70,11 +70,12 @@
             android:tag="vod_control_pause_time"            
             android:text="00:00 AM"
             android:textColor="@android:color/white"
+            android:shadowColor="@color/color_FF000000"      
             android:fontFamily="@font/advent_pro_extralight"       
-            android:textSize="@dimen/ts_30" />
+            android:textSize="@dimen/ts_30"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="3"
+            android:shadowRadius="3" />
         
         <TextView
             android:id="@+id/tv_finish_at"
@@ -85,13 +86,15 @@
             android:focusable="false"
             android:focusableInTouchMode="false"
             android:maxLines="1"
+            android:text="Ends at 00:00 AM"
             android:layout_marginRight="@dimen/vs_24"
             android:textColor="@android:color/white"
+            android:shadowColor="@color/color_FF000000"
             android:fontFamily="@font/advent_pro_extralight"      
-            android:textSize="@dimen/ts_20" />
+            android:textSize="@dimen/ts_20"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="3"
+            android:shadowRadius="3" />
 
         <TextView
             android:id="@+id/tv_play_load_net_speed_right_top"
@@ -105,10 +108,11 @@
             android:text="0Kbps"
             android:fontFamily="@font/advent_pro_extralight"       
             android:textColor="@android:color/white"
-            android:textSize="@dimen/ts_20" />
+            android:shadowColor="@color/color_FF000000"      
+            android:textSize="@dimen/ts_20"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="3"
+            android:shadowRadius="3" />
     </LinearLayout>
 
     <com.github.tvbox.osc.subtitle.widget.SimpleSubtitleView
