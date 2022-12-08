@@ -141,49 +141,25 @@ public class VodController extends BaseController {
     
      //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
-        @Override
-        public void run() {
-        Date date = new Date();
+         @Override
+         public void run() {
+         Date date = new Date();
          @SuppressLint("SimpleDateFormat")
-  
-
-            SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
-              SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm aa", Locale.ENGLISH);
-                long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
-                Date endTime = new Date(date.getTime() + remainTime);
-            mPlayPauseTime.setText(timeFormat.format(date));
-            String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
-            mPlayLoadNetSpeedRightTop.setText(speed);
-            mPlayLoadNetSpeed.setText(speed);
-            String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
-            String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-            
-            mVideoSize.setText( "" + width + " X " + height +"" );
-            finishAt.setText("Ends at：" + onlyTimeFormat.format(endTime));
-
-            mHandler.postDelayed(this, 1000);
+         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+         SimpleDateFormat onlyTimeFormat = new SimpleDateFormat("hh:mm:ss");
+         long remainTime = mControlWrapper.getDuration() - mControlWrapper.getCurrentPosition();
+         Date endTime = new Date(date.getTime() + remainTime);
+         mPlayPauseTime.setText(timeFormat.format(date));
+         String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
+         mPlayLoadNetSpeedRightTop.setText(speed);
+         mPlayLoadNetSpeed.setText(speed);
+         String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
+         String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
+         mVideoSize.setText( "" + width + " X " + height +"" );
+         finishAt.setText("Ends at：" + onlyTimeFormat.format(endTime));
+         mHandler.postDelayed(this, 1000);
         }
     };
-
-    //private Runnable myRunnable2 = new Runnable() {
-      //  @Override
-       // public void run() {
-         //   Date date = new Date();
-         //   SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-          //  mPlayPauseTime.setText(timeFormat.format(date));
-         //   String speed = PlayerHelper.getDisplaySpeed(mControlWrapper.getTcpSpeed());
-          //  mPlayLoadNetSpeedRightTop.setText(speed);
-        //    mPlayLoadNetSpeed.setText(speed);
-      //      String width = Integer.toString(mControlWrapper.getVideoSize()[0]);
-    //        String height = Integer.toString(mControlWrapper.getVideoSize()[1]);
-  //          mVideoSize.setText("[ " + width + " X " + height +" ]");
-//
-      //      mHandler.postDelayed(this, 1000);
-    //    }
-   // };
-
-
-
 
     @Override
     protected void initView() {
