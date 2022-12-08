@@ -72,9 +72,7 @@
             android:textColor="@android:color/white"
             android:fontFamily="@font/advent_pro_extralight"       
             android:textSize="@dimen/ts_30" />
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
+
         
         <TextView
             android:id="@+id/tv_finish_at"
@@ -89,9 +87,7 @@
             android:textColor="@android:color/white"
             android:fontFamily="@font/advent_pro_extralight"      
             android:textSize="@dimen/ts_20" />
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
+
 
         <TextView
             android:id="@+id/tv_play_load_net_speed_right_top"
@@ -106,9 +102,7 @@
             android:fontFamily="@font/advent_pro_extralight"       
             android:textColor="@android:color/white"
             android:textSize="@dimen/ts_20" />
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="3"
+
     </LinearLayout>
 
     <com.github.tvbox.osc.subtitle.widget.SimpleSubtitleView
