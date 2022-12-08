@@ -58,12 +58,13 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private LinearLayout tvHistory;
     private LinearLayout tvCollect;
     private LinearLayout tvPush;
+    private LinearLayout tvtalk;
+    TextView tvtalk1;
     private HomeHotVodAdapter homeHotVodAdapter;
     private List<Movie.Video> homeSourceRec;
     TvRecyclerView tvHotList1;
     TvRecyclerView tvHotList2;
-    TextView tvtalk;
-
+  
     public static UserFragment newInstance() {
         return new UserFragment();
     }
@@ -133,7 +134,7 @@ private void sendRequestWithHttpClient() {
                         String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk.setText(value);                     
+                        tvtalk1.setText(value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -166,6 +167,7 @@ private void sendRequestWithHttpClient() {
         tvHotList1 = findViewById(R.id.tvHotList1);
         tvHotList2 = findViewById(R.id.tvHotList2);
         tvtalk = findViewById(R.id.tvtalk);
+        tvtalk1 = findViewById(R.id.tvtalk1);
         homeHotVodAdapter = new HomeHotVodAdapter();
         homeHotVodAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
