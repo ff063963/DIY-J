@@ -139,7 +139,7 @@ public class VodController extends BaseController {
 
     int videoPlayState = 0;
     
-     //增加完结时间
+    //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
          @Override
          public void run() {
