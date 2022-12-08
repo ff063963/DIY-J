@@ -44,12 +44,6 @@ sed -i 's#String apiUrl = Hawk.get(HawkConfig.API_URL, "");#String apiUrl = Hawk
 #自定义epg
 cp $CURRENT_DIR/DIY/epg_data.json $CURRENT_DIR/$DIR/app/src/main/assets/epg_data.json
 
-
-//设置界面修改
-#cp $CURRENT_DIR/DIY/设置/ModelSettingFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/ModelSettingFragment.java
-#cp $CURRENT_DIR/DIY/设置/fragment_model.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_model.xml
-
-
 #播放界面修改
 cp $CURRENT_DIR/DIY/播放/player_vod_control_view.xml  $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 cp $CURRENT_DIR/DIY/播放/VodController.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/player/controller/VodController.java
