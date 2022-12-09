@@ -50,6 +50,7 @@ import com.github.tvbox.osc.util.AppManager;
 import com.github.tvbox.osc.util.DefaultConfig;
 import com.github.tvbox.osc.util.HawkConfig;
 import com.github.tvbox.osc.util.LOG;
+import com.github.tvbox.osc.util.urlhttp.UrlHttpUtil;
 import com.github.tvbox.osc.viewmodel.SourceViewModel;
 import com.orhanobut.hawk.Hawk;
 import com.owen.tvrecyclerview.widget.TvRecyclerView;
@@ -66,6 +67,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
+import java.io.InputStream;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
@@ -133,15 +138,15 @@ public class HomeActivity extends BaseActivity {
         }
     };
     
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.textview);
-        //通过id获取TextView控件
-        tvtalk = (TextView) findViewById(R.id.tvtalk);
-        //使用setText的方法对textview动态赋值
-        tvtalk.setText("nihao"+value);   
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.textview);
+//        //通过id获取TextView控件
+//        tvtalk = (TextView) findViewById(R.id.tvtalk);
+//        //使用setText的方法对textview动态赋值
+//        tvtalk.setText("nihao"+value);   
+//    }
 
 
     @Override
@@ -170,7 +175,7 @@ public class HomeActivity extends BaseActivity {
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
-        //this.tvtalk = findViewById(R.id.tvtalk);
+        this.tvtalk = findViewById(R.id.tvtalk);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
@@ -178,7 +183,6 @@ public class HomeActivity extends BaseActivity {
         this.mGridView.setLayoutManager(new V7LinearLayoutManager(this.mContext, 0, false));
         this.mGridView.setSpacingWithMargins(0, AutoSizeUtils.dp2px(this.mContext, 10.0f));
         this.mGridView.setAdapter(this.sortAdapter);
-        initSubtitleInfo();
         this.mGridView.setOnItemListener(new TvRecyclerView.OnItemListener() {
             public void onItemPreSelected(TvRecyclerView tvRecyclerView, View view, int position) {
                 if (view != null && !HomeActivity.this.isDownOrUp) {
