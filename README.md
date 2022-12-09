@@ -128,3 +128,6 @@ This repo relies on the following third-party projects:
 - [lqinyli/TVBoxOSC-2](https://github.com/lqinyli/TVBoxOS-2) (Updated: e30987020db0fd5b86b63cfcaf620362cf7e23b4)
 - [kensonmiao/CatVodTVOSC](https://github.com/kensonmiao/CatVodTVOSC) (Updated: 09be7d64f6e85051190c61d59aa3eb744ad699e0)
 - [TVBox-FongMi](https://github.com/lqinyli/FONGMI-TV) (Updated: 04b30d5adfcf2f72c5c64b0745b42d2cd96ae303)
+
+ <!--  注释内容   --> xml整段注释
+ 选中连续多行，直接按ctrl+“/”键就注释多行了，反注释就是再按ctrl+“/”键。
