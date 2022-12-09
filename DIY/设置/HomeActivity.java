@@ -137,7 +137,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.textview);
+        //setContentView(R.layout.textview);
         //通过id获取TextView控件
         tvtalk = (TextView) findViewById(R.id.tvtalk);
         //使用setText的方法对textview动态赋值
