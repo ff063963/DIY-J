@@ -143,15 +143,6 @@ public class HomeActivity extends BaseActivity {
         }
     };
     
-       @Override
-       protected void initView() {
-       super.initView();
-       tvtalk = (TextView) findViewById(R.id.tvtalk);
-       //使用setText的方法对textview动态赋值
-       tvtalk.setText("nihao"+value);   
-       }
-
-
     @Override
     protected int getLayoutResID() {
         return R.layout.activity_home;
@@ -175,6 +166,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
+        tvName = findViewById(R.id.tvName);
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
