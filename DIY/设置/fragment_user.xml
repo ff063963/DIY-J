@@ -272,7 +272,7 @@
                     android:text="搜索"
                     android:textAlignment="gravity"
                     android:textColor="@color/color_CCFFFFFF"
-                    android:paddingTop="@dimen/vs_110"
+                    android:paddingTop="@dimen/vs_100"
                     android:textSize="@dimen/ts_30" />
 
            
