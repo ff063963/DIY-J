@@ -29,9 +29,12 @@ cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xhd
 cp $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxhdpi/app_icon.png
 mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxxhdpi/app_icon.png
 
-#主页微调
+#主页UI微调
 cp $CURRENT_DIR/DIY/设置/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
-#cp $CURRENT_DIR/DIY/设置/UserFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/UserFragment.java
+
+#主页增加每日一言
+cp $CURRENT_DIR/DIY/设置/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
+cp $CURRENT_DIR/DIY/设置/HomeActivity.xml $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 
 #背景修改
 cp $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
