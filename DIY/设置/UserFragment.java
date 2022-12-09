@@ -159,8 +159,9 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
-        tvtalk1 =(TextView) findViewById(R.id.tvtalk1)
-        
+        TextView tvtalk1 = (TextView) findViewById(R.id.tvtalk1)
+        //TextView usernameTxt = (TextView)this.findViewById(R.id.txt_username);
+        //usernameTxt.setText(R.string.username);
         tvLive = findViewById(R.id.tvLive);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
