@@ -112,8 +112,7 @@ public class HomeActivity extends BaseActivity {
                         String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk = (TextView) findViewById(R.id.tvtalk);
-                        tvtalk.setText(value);                     
+                        tvtalk.setText("nihao" value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -137,11 +136,11 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.textview);
+        setContentView(R.layout.textview);
         //通过id获取TextView控件
         tvtalk = (TextView) findViewById(R.id.tvtalk);
         //使用setText的方法对textview动态赋值
-        tvtalk.setText(value);   
+        tvtalk.setText("nihao"value);   
     }
 
 
