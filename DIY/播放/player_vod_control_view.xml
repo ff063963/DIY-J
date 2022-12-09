@@ -86,7 +86,7 @@
             android:layout_marginRight="@dimen/vs_24"
             android:textColor="@android:color/white"
             android:fontFamily="@font/advent_pro_extralight"      
-            android:textSize="@dimen/ts_25" />
+            android:textSize="@dimen/ts_24" />
 
 
         <TextView
@@ -101,7 +101,7 @@
             android:text="0Kbps"
             android:fontFamily="@font/advent_pro_extralight"       
             android:textColor="@android:color/white"
-            android:textSize="@dimen/ts_25" />
+            android:textSize="@dimen/ts_24" />
 
     </LinearLayout>
 
