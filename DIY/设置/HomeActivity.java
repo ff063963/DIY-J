@@ -119,7 +119,7 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         }).start();
-}
+};
   
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -160,7 +160,7 @@ public class HomeActivity extends BaseActivity {
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
-        tvtalk = findViewById(R.id.tvtalk);
+        this.tvtalk = findViewById(R.id.tvtalk);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
