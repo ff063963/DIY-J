@@ -46,6 +46,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
+import java.io.InputStream;
+
+
 /**
  * @author pj567
  * @date :2021/3/9
@@ -64,6 +70,38 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private List<Movie.Video> homeSourceRec;
     TvRecyclerView tvHotList1;
     TvRecyclerView tvHotList2;
+    
+      private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String url1 = "https://v1.hitokoto.cn?c=i";
+                    URL url = new URL(url1);
+                    //得到connection对象。
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    //设置请求方式
+                    connection.setRequestMethod("GET");
+                    //连接
+                    connection.connect();
+                    //得到响应码
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        //得到响应流
+                        InputStream inputStream = connection.getInputStream();
+                        //将响应流转换成字符串
+                         String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+                        //String result = is2String(inputStream);//将流转换为字符串。
+                         JSONObject jsonObject = new JSONObject(result);
+                        String value = jsonObject.optString("hitokoto");
+                        tvtalk.setText("nihao"+ value);                     
+                    } 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+};
   
     public static UserFragment newInstance() {
         return new UserFragment();
@@ -112,40 +150,10 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         return R.layout.fragment_user;
     }
     
-private void sendRequestWithHttpClient() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String url1 = "https://v1.hitokoto.cn?c=i";
-                    URL url = new URL(url1);
-                    //得到connection对象。
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    //设置请求方式
-                    connection.setRequestMethod("GET");
-                    //连接
-                    connection.connect();
-                    //得到响应码
-                    int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        //得到响应流
-                        InputStream inputStream = connection.getInputStream();
-                        //将响应流转换成字符串
-                        String result = is2String(inputStream);//将流转换为字符串。
-                         JSONObject jsonObject = new JSONObject(result);
-                        String value = jsonObject.optString("hitokoto");
-                        tvtalk1.setText(value);                     
-                    } 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-}
-
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
+        tvtalk = findViewById(R.id.tvtalk);
         tvLive = findViewById(R.id.tvLive);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
