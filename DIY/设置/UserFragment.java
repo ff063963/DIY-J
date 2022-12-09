@@ -101,9 +101,10 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                         String value = jsonObject.optString("hitokoto");
                         tvtalk1.setText("nihao"+ value);                     
                     } 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } 
+                catch (Exception e) {
+                  e.printStackTrace();
+              }
             }
         }).start();
 };
