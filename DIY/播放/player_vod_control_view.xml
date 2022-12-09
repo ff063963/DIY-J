@@ -48,7 +48,7 @@
 
     <LinearLayout
         android:id="@+id/tv_top_r_container"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:tag="tv_top_container"
         android:visibility="gone"
@@ -86,7 +86,7 @@
             android:layout_marginRight="@dimen/vs_24"
             android:textColor="@android:color/white"
             android:fontFamily="@font/advent_pro_extralight"      
-            android:textSize="@dimen/ts_30" />
+            android:textSize="@dimen/ts_25" />
 
 
         <TextView
@@ -101,7 +101,7 @@
             android:text="0Kbps"
             android:fontFamily="@font/advent_pro_extralight"       
             android:textColor="@android:color/white"
-            android:textSize="@dimen/ts_30" />
+            android:textSize="@dimen/ts_25" />
 
     </LinearLayout>
 
