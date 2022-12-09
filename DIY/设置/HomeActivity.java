@@ -112,7 +112,7 @@ public class HomeActivity extends BaseActivity {
                         String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk.setText("nihao" value);                     
+                        tvtalk.setText("nihao"+ value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -140,7 +140,7 @@ public class HomeActivity extends BaseActivity {
         //通过id获取TextView控件
         tvtalk = (TextView) findViewById(R.id.tvtalk);
         //使用setText的方法对textview动态赋值
-        tvtalk.setText("nihao"value);   
+        tvtalk.setText("nihao"+value);   
     }
 
 
