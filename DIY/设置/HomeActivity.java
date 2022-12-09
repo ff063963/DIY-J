@@ -150,10 +150,10 @@ public class HomeActivity extends BaseActivity {
 
     boolean useCacheConfig = false;
 
-    @Override
-    protected void initView1() {
-    tvName = findViewById(R.id.tvName);
-    }
+   // @Override
+   // protected void initView1() {
+   // tvName = findViewById(R.id.tvName);
+   // }
     
     @Override
     protected void init() {
@@ -171,7 +171,7 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvName = findViewById(R.id.tvName);
+        tvtalk = findViewById(R.id.tvtalk);
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
