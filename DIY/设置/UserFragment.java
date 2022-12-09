@@ -7,6 +7,8 @@ import android.view.animation.BounceInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.tvbox.osc.R;
 import com.github.tvbox.osc.api.ApiConfig;
@@ -51,6 +53,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
+import java.nio.charset.StandardCharsets;
 
 
 /**
