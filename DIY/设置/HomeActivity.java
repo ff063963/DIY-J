@@ -151,6 +151,11 @@ public class HomeActivity extends BaseActivity {
     boolean useCacheConfig = false;
 
     @Override
+    protected void initView1() {
+    tvName = findViewById(R.id.tvName);
+    }
+    
+    @Override
     protected void init() {
         EventBus.getDefault().register(this);
         ControlManager.get().startServer();
