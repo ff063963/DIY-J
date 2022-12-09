@@ -74,7 +74,7 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout contentLayout;
     private TextView tvDate;
     private TextView tvName;
-    TextView tvtalk;
+    private TextView tvtalk;
     private TvRecyclerView mGridView;
     private NoScrollViewPager mViewPager;
     private SourceViewModel sourceViewModel;
@@ -112,6 +112,7 @@ public class HomeActivity extends BaseActivity {
                         String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
+                        tvtalk = (TextView) findViewById(R.id.tvtalk);
                         tvtalk.setText(value);                     
                     } 
                 } catch (Exception e) {
@@ -156,11 +157,10 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-        super.initView();
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
-        this.tvtalk = findViewById(R.id.tvtalk);
+        //this.tvtalk = findViewById(R.id.tvtalk);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
