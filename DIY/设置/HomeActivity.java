@@ -133,6 +133,16 @@ public class HomeActivity extends BaseActivity {
             mHandler.postDelayed(this, 1000);
         }
     };
+    
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //setContentView(R.layout.textview);
+        //通过id获取TextView控件
+        tvtalk = (TextView) findViewById(R.id.tvtalk);
+        //使用setText的方法对textview动态赋值
+        tvtalk.setText(value);   
+    }
+
 
     @Override
     protected int getLayoutResID() {
