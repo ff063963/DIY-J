@@ -31,11 +31,11 @@ mv $CURRENT_DIR/DIY/app_icon.png $CURRENT_DIR/$DIR/app/src/main/res/drawable-xxx
 
 #主页UI微调
 cp $CURRENT_DIR/DIY/设置/fragment_user.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/fragment_user.xml
-#cp $CURRENT_DIR/DIY/设置/UserFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/UserFragment.java
+cp $CURRENT_DIR/DIY/设置/UserFragment.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/fragment/UserFragment.java
 
 #主页增加每日一言
-cp $CURRENT_DIR/DIY/设置/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
-cp $CURRENT_DIR/DIY/设置/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
+#cp $CURRENT_DIR/DIY/设置/activity_home.xml $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_home.xml
+#cp $CURRENT_DIR/DIY/设置/HomeActivity.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 
 #背景修改
 cp $CURRENT_DIR/DIY/app_bg_black.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
