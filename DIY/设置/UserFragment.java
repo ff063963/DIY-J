@@ -65,7 +65,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private LinearLayout tvCollect;
     private LinearLayout tvPush;
     //private LinearLayout tvtalk;
-    private TextView tvtalk;
+    private TextView tvtalk1;
     private HomeHotVodAdapter homeHotVodAdapter;
     private List<Movie.Video> homeSourceRec;
     TvRecyclerView tvHotList1;
@@ -94,7 +94,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk.setText("nihao"+ value);                     
+                        tvtalk1.setText("nihao"+ value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -153,7 +153,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
-        tvtalk = findViewById(R.id.tvtalk);
+        tvtalk1 = findViewById(R.id.tvtalk1);
         tvLive = findViewById(R.id.tvLive);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
