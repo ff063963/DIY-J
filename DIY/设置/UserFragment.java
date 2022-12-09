@@ -99,7 +99,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk1.setText("nihao"+ value);                     
+                        tvtalk1.setText("nihao" + value);                     
                     } 
                 } 
                 catch (Exception e) {
@@ -161,7 +161,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
         EventBus.getDefault().register(this);
         //tvtalk1 = (TextView) tvtalk1.findViewById(R.id.tvtalk1);
         tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
-        tvtalk1.setText("nihao"+ value);  
+       // tvtalk1.setText("nihao"+ value);  
         //TextView usernameTxt = (TextView)this.findViewById(R.id.txt_username);
         //usernameTxt.setText(R.string.username);
         tvLive = findViewById(R.id.tvLive);
