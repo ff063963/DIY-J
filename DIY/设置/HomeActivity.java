@@ -172,8 +172,8 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvtalk = (TextView) tvtalk.findViewById(R.id.tv_tvtalk);
-        tvtalk = (TextView) findViewById(R.id.tv_tvtalk);
+        tvtalk = (TextView) tvtalk.findViewById(R.id.tvtalk);
+        tvtalk = (TextView) findViewById(R.id.tvtalk);
         //tvtalk = findViewById(R.id.tvtalk);
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
