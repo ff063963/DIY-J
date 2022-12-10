@@ -91,6 +91,7 @@ public class MainActivity extends Activity {
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
+                         tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
                         tvtalk1.setText("nihao" + value);                     
                     } 
                 } 
@@ -99,8 +100,7 @@ public class MainActivity extends Activity {
               }
             }
         }).start();
-    } 
-         tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
+    }      
     }
 }
 public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
