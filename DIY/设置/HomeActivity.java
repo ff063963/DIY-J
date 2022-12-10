@@ -123,7 +123,7 @@ public class HomeActivity extends BaseActivity {
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk.setText("nihao"+ value);                     
+                        tvtalk.setText(value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -138,7 +138,7 @@ public class HomeActivity extends BaseActivity {
         public void run() {
             Date date = new Date();
             @SuppressLint("SimpleDateFormat")
-            SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("yy/MM/dd HH:mm");
             tvDate.setText(timeFormat.format(date));
             mHandler.postDelayed(this, 1000);
         }
@@ -150,11 +150,6 @@ public class HomeActivity extends BaseActivity {
     }
 
     boolean useCacheConfig = false;
-
-   // @Override
-   // protected void initView1() {
-   // tvName = findViewById(R.id.tvName);
-   // }
     
     @Override
     protected void init() {
@@ -172,9 +167,8 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-        tvtalk = (TextView) tvtalk.findViewById(R.id.tvtalk);
-        tvtalk = (TextView) findViewById(R.id.tvtalk);
-        //tvtalk = findViewById(R.id.tvtalk);
+//tvtalk = (TextView) tvtalk.findViewById(R.id.tvtalk);
+      
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
