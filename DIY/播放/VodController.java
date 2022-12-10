@@ -128,7 +128,7 @@ public class VodController extends BaseController {
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     TextView finishAt;
-    TextView tvtalk1;
+    TextView tvtalk;
     
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
@@ -171,7 +171,7 @@ public class VodController extends BaseController {
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                        tvtalk1.setText("nihao" + value);                     
+                        tvtalk.setText("nihao" + value);                     
                     } 
                 } 
                 catch (Exception e) {
@@ -181,10 +181,10 @@ public class VodController extends BaseController {
         }).start();
 };
         @Override
-    protected void initView() {
-        super.initView();
-        tvtalk1 = findViewById(R.id.tvtalk1);
-    };
+    protected void initView1() {
+        super.initView1();
+        tvtalk = findViewById(R.id.tvtalk);
+    }
     
     //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
