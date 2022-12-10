@@ -107,11 +107,11 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
               }
             }
         }).start();
-    }    
-    //@Override
+    };    
+
     protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
-         setContentView(R.layout.tvtalk1); 
+        // setContentView(R.layout.tvtalk1); 
          tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
     }
 
