@@ -70,7 +70,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private LinearLayout tvCollect;
     private LinearLayout tvPush;
     //private LinearLayout tvtalk;
-    private TextView tvtalk1;
+    TextView tvtalk1;
     private HomeHotVodAdapter homeHotVodAdapter;
     private List<Movie.Video> homeSourceRec;
     TvRecyclerView tvHotList1;
@@ -111,8 +111,8 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
-         setContentView(R.layout.tvtalk); 
-         tvtalk = (TextView) findViewById(R.id.tvtalk);
+         setContentView(R.layout.tvtalk1); 
+         tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
     }
 
   
