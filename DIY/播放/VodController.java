@@ -126,7 +126,7 @@ public class VodController extends BaseController {
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     TextView finishAt;
-    TextView tvtalk1
+    TextView tvtalk1;
     
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
