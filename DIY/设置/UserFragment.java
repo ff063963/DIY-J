@@ -62,14 +62,28 @@ import android.os.Bundle;
  * @date :2021/3/9
  * @description:
  */
-public class MainActivity extends Activity {
-    //初始化控件
-    private TextView tvtalk1;  
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         private void sendRequestWithHttpClient() {
-        new Thread(new Runnable() {
+
+    private TextView tvtalk1;   
+    
+
+
+public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
+    private LinearLayout tvLive;
+    private LinearLayout tvSearch;
+    private LinearLayout tvSetting;
+    private LinearLayout tvHistory;
+    private LinearLayout tvCollect;
+    private LinearLayout tvPush;
+    //private LinearLayout tvtalk;
+    TextView tvtalk1;
+    private HomeHotVodAdapter homeHotVodAdapter;
+    private List<Movie.Video> homeSourceRec;
+    TvRecyclerView tvHotList1;
+    TvRecyclerView tvHotList2;
+    
+
+    private void sendRequestWithHttpClient() {
+    new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -91,7 +105,6 @@ public class MainActivity extends Activity {
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
-                         tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
                         tvtalk1.setText("nihao" + value);                     
                     } 
                 } 
@@ -101,23 +114,13 @@ public class MainActivity extends Activity {
             }
         }).start();
     }      
-    }
-}
-public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
-    private LinearLayout tvLive;
-    private LinearLayout tvSearch;
-    private LinearLayout tvSetting;
-    private LinearLayout tvHistory;
-    private LinearLayout tvCollect;
-    private LinearLayout tvPush;
-    private LinearLayout tvtalk;
-    TextView tvtalk1;
-    private HomeHotVodAdapter homeHotVodAdapter;
-    private List<Movie.Video> homeSourceRec;
-    TvRecyclerView tvHotList1;
-    TvRecyclerView tvHotList2;
-    
+    };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
+   }
 
   
     public static UserFragment newInstance() {
