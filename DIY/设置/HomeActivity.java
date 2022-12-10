@@ -119,8 +119,8 @@ public class HomeActivity extends BaseActivity {
                         //得到响应流
                         InputStream inputStream = connection.getInputStream();
                         //将响应流转换成字符串
-                         String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-                        //String result = is2String(inputStream);//将流转换为字符串。
+                         //String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+                         String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
                         tvtalk.setText(value);                     
