@@ -63,7 +63,7 @@ import android.os.Bundle;
  * @description:
  */
 
-    private TextView tvtalk1;   
+
     
 
 
@@ -105,6 +105,7 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
                         //String result = is2String(inputStream);//将流转换为字符串。
                          JSONObject jsonObject = new JSONObject(result);
                         String value = jsonObject.optString("hitokoto");
+                        tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
                         tvtalk1.setText("nihao" + value);                     
                     } 
                 } 
@@ -114,13 +115,12 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
             }
         }).start();
     }      
-    };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
-   }
+  //  }
+//     @Override
+//     protected void onCreate(Bundle savedInstanceState) {
+//          super.onCreate(savedInstanceState);
+//          tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
+//    }
 
   
     public static UserFragment newInstance() {
