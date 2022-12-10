@@ -180,9 +180,9 @@ public class VodController extends BaseController {
             }
         }).start();
 };
-        @Override
+     //   @Override
     protected void initView1() {
-        super.initView1();
+        super.initView();
         tvtalk = findViewById(R.id.tvtalk);
     }
     
