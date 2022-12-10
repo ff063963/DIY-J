@@ -180,6 +180,11 @@ public class VodController extends BaseController {
             }
         }).start();
 };
+        @Override
+    protected void initView() {
+        super.initView();
+        tvtalk1 = findViewById(R.id.tvtalk1);
+    };
     
     //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
@@ -206,7 +211,7 @@ public class VodController extends BaseController {
     @Override
     protected void initView() {
         super.initView();
-        tvtalk1 = findViewById(R.id.tvtalk1);
+        //tvtalk1 = findViewById(R.id.tvtalk1);
         mCurrentTime = findViewById(R.id.curr_time);
         mTotalTime = findViewById(R.id.total_time);
         mPlayTitle = findViewById(R.id.tv_info_name);
