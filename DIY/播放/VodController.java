@@ -54,6 +54,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
 import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
+import java.nio.charset.StandardCharsets;
 
 
 public class VodController extends BaseController {
@@ -238,7 +240,7 @@ public class VodController extends BaseController {
         mZimuBtn = findViewById(R.id.zimu_select);
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
-        finishAt = findViewById(R.id.tv_finish_at);
+        //finishAt = findViewById(R.id.tv_finish_at);
         initSubtitleInfo();
 
         myHandle = new Handler();
