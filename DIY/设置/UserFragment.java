@@ -62,11 +62,6 @@ import android.os.Bundle;
  * @date :2021/3/9
  * @description:
  */
-
-
-    
-
-
 public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
     private LinearLayout tvLive;
     private LinearLayout tvSearch;
@@ -74,55 +69,13 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     private LinearLayout tvHistory;
     private LinearLayout tvCollect;
     private LinearLayout tvPush;
-    //private LinearLayout tvtalk;
-    TextView tvtalk1;
     private HomeHotVodAdapter homeHotVodAdapter;
     private List<Movie.Video> homeSourceRec;
     TvRecyclerView tvHotList1;
     TvRecyclerView tvHotList2;
     
 
-    private void sendRequestWithHttpClient() {
-    new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String url1 = "https://v1.hitokoto.cn?c=i";
-                    URL url = new URL(url1);
-                    //得到connection对象。
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    //设置请求方式
-                    connection.setRequestMethod("GET");
-                    //连接
-                    connection.connect();
-                    //得到响应码
-                    int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        //得到响应流
-                        InputStream inputStream = connection.getInputStream();
-                        //将响应流转换成字符串
-                         String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-                        //String result = is2String(inputStream);//将流转换为字符串。
-                         JSONObject jsonObject = new JSONObject(result);
-                        String value = jsonObject.optString("hitokoto");
-                        tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
-                        tvtalk1.setText("nihao" + value);                     
-                    } 
-                } 
-                catch (Exception e) {
-                  e.printStackTrace();
-              }
-            }
-        }).start();
-    }      
-  //  }
-//     @Override
-//     protected void onCreate(Bundle savedInstanceState) {
-//          super.onCreate(savedInstanceState);
-//          tvtalk1 = (TextView) findViewById(R.id.tvtalk1); 
-//    }
-
-  
+   
     public static UserFragment newInstance() {
         return new UserFragment();
     }
@@ -173,7 +126,6 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     @Override
     protected void init() {
         EventBus.getDefault().register(this);
-        tvtalk1 = (TextView) tvtalk1.findViewById(R.id.tvtalk1);
         tvLive = findViewById(R.id.tvLive);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
