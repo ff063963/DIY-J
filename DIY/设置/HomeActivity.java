@@ -120,10 +120,14 @@ public class HomeActivity extends BaseActivity {
                         InputStream inputStream = connection.getInputStream();
                         //将响应流转换成字符串
                          //String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-                         String result = is2String(inputStream);//将流转换为字符串。
+                         //String result = is2String(inputStream);//将流转换为字符串。
+
+                         StringWriter writer = new StringWriter();
+                         IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8.name());
+                         String result = writer.toString();
                          JSONObject jsonObject = new JSONObject(result);
-                        String value = jsonObject.optString("hitokoto");
-                        tvtalk.setText(value);                     
+                         String value = jsonObject.optString("hitokoto");
+                         tvtalk.setText(value);                     
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
