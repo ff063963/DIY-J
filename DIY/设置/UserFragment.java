@@ -62,21 +62,13 @@ import android.os.Bundle;
  * @date :2021/3/9
  * @description:
  */
-public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
-    private LinearLayout tvLive;
-    private LinearLayout tvSearch;
-    private LinearLayout tvSetting;
-    private LinearLayout tvHistory;
-    private LinearLayout tvCollect;
-    private LinearLayout tvPush;
-    private LinearLayout tvtalk;
-    TextView tvtalk1;
-    private HomeHotVodAdapter homeHotVodAdapter;
-    private List<Movie.Video> homeSourceRec;
-    TvRecyclerView tvHotList1;
-    TvRecyclerView tvHotList2;
-    
-      private void sendRequestWithHttpClient() {
+public class MainActivity extends Activity {
+    //初始化控件
+    private TextView tvtalk1;  
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         private void sendRequestWithHttpClient() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -107,13 +99,25 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
               }
             }
         }).start();
-    };    
-
-    protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-        // setContentView(R.layout.tvtalk1); 
+    } 
          tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
     }
+}
+public class UserFragment extends BaseLazyFragment implements View.OnClickListener {
+    private LinearLayout tvLive;
+    private LinearLayout tvSearch;
+    private LinearLayout tvSetting;
+    private LinearLayout tvHistory;
+    private LinearLayout tvCollect;
+    private LinearLayout tvPush;
+    private LinearLayout tvtalk;
+    TextView tvtalk1;
+    private HomeHotVodAdapter homeHotVodAdapter;
+    private List<Movie.Video> homeSourceRec;
+    TvRecyclerView tvHotList1;
+    TvRecyclerView tvHotList2;
+    
+
 
   
     public static UserFragment newInstance() {
