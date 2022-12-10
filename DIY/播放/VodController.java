@@ -50,12 +50,13 @@ import xyz.doikki.videoplayer.util.PlayerUtils;
 
 import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
 
-// import java.net.HttpURLConnection;
-// import java.net.URL;
-// import org.json.JSONObject;
-// import java.io.InputStream;
-// import org.apache.commons.io.IOUtils;
-// import java.nio.charset.StandardCharsets;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
+import java.io.InputStream;
+import org.apache.commons.io.IOUtils;
+import java.nio.charset.StandardCharsets;
+import android.os.Bundle;
 
 
 public class VodController extends BaseController {
@@ -128,7 +129,7 @@ public class VodController extends BaseController {
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     TextView finishAt;
-//     TextView tvtalk;
+    TextView tvtalk;
     
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
@@ -148,43 +149,45 @@ public class VodController extends BaseController {
 
     int videoPlayState = 0;
     
-//           private void sendRequestWithHttpClient() {
-//         new Thread(new Runnable() {
-//             @Override
-//             public void run() {
-//                 try {
-//                     String url1 = "https://v1.hitokoto.cn?c=i";
-//                     URL url = new URL(url1);
-//                     //得到connection对象。
-//                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//                     //设置请求方式
-//                     connection.setRequestMethod("GET");
-//                     //连接
-//                     connection.connect();
-//                     //得到响应码
-//                     int responseCode = connection.getResponseCode();
-//                     if (responseCode == HttpURLConnection.HTTP_OK) {
-//                         //得到响应流
-//                         InputStream inputStream = connection.getInputStream();
-//                         //将响应流转换成字符串
-//                          String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-//                         //String result = is2String(inputStream);//将流转换为字符串。
-//                          JSONObject jsonObject = new JSONObject(result);
-//                         String value = jsonObject.optString("hitokoto");
-//                         tvtalk.setText("nihao" + value);                     
-//                     } 
-//                 } 
-//                 catch (Exception e) {
-//                   e.printStackTrace();
-//               }
-//             }
-//         }).start();
-// };
-//      //   @Override
-//     protected void initView1() {
-//         super.initView();
-//         tvtalk = findViewById(R.id.tvtalk);
-//     }
+          private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String url1 = "https://v1.hitokoto.cn?c=i";
+                    URL url = new URL(url1);
+                    //得到connection对象。
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    //设置请求方式
+                    connection.setRequestMethod("GET");
+                    //连接
+                    connection.connect();
+                    //得到响应码
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        //得到响应流
+                        InputStream inputStream = connection.getInputStream();
+                        //将响应流转换成字符串
+                        // String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+                         String result = is2String(inputStream);//将流转换为字符串。
+                         JSONObject jsonObject = new JSONObject(result);
+                        String value = jsonObject.optString("hitokoto");
+                        tvtalk.setText("nihao" + value);                     
+                    } 
+                } 
+                catch (Exception e) {
+                  e.printStackTrace();
+              }
+            }
+        }).start();
+};
+    @Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.tvtalk); 
+    tvtalk = (TextView) findViewById(R.id.tvtalk);
+        }
+    }
     
     //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
