@@ -50,6 +50,12 @@ import xyz.doikki.videoplayer.util.PlayerUtils;
 
 import static xyz.doikki.videoplayer.util.PlayerUtils.stringForTime;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
+import java.io.InputStream;
+
+
 public class VodController extends BaseController {
     public VodController(@NonNull @NotNull Context context) {
         super(context);
@@ -120,6 +126,7 @@ public class VodController extends BaseController {
     TextView mPlayerRetry;
     TextView mPlayrefresh;
     TextView finishAt;
+    TextView tvtalk1
     
     public TextView mPlayerTimeStartEndText;
     public TextView mPlayerTimeStartBtn;
@@ -138,6 +145,39 @@ public class VodController extends BaseController {
     int myHandleSeconds = 6000;//闲置多少毫秒秒关闭底栏  默认6秒
 
     int videoPlayState = 0;
+    
+          private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String url1 = "https://v1.hitokoto.cn?c=i";
+                    URL url = new URL(url1);
+                    //得到connection对象。
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    //设置请求方式
+                    connection.setRequestMethod("GET");
+                    //连接
+                    connection.connect();
+                    //得到响应码
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        //得到响应流
+                        InputStream inputStream = connection.getInputStream();
+                        //将响应流转换成字符串
+                         String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+                        //String result = is2String(inputStream);//将流转换为字符串。
+                         JSONObject jsonObject = new JSONObject(result);
+                        String value = jsonObject.optString("hitokoto");
+                        tvtalk1.setText("nihao" + value);                     
+                    } 
+                } 
+                catch (Exception e) {
+                  e.printStackTrace();
+              }
+            }
+        }).start();
+};
     
     //增加完结时间
     private Runnable myRunnable2 = new Runnable() {
@@ -164,6 +204,7 @@ public class VodController extends BaseController {
     @Override
     protected void initView() {
         super.initView();
+        tvtalk1 = findViewById(R.id.tvtalk1);
         mCurrentTime = findViewById(R.id.curr_time);
         mTotalTime = findViewById(R.id.total_time);
         mPlayTitle = findViewById(R.id.tv_info_name);
