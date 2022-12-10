@@ -55,7 +55,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 import java.nio.charset.StandardCharsets;
-
+import android.os.Bundle;
 
 /**
  * @author pj567
@@ -107,7 +107,14 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
               }
             }
         }).start();
-};
+    }    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.tvtalk); 
+         tvtalk = (TextView) findViewById(R.id.tvtalk);
+    }
+
   
     public static UserFragment newInstance() {
         return new UserFragment();
@@ -160,10 +167,6 @@ public class UserFragment extends BaseLazyFragment implements View.OnClickListen
     protected void init() {
         EventBus.getDefault().register(this);
         tvtalk1 = (TextView) tvtalk1.findViewById(R.id.tvtalk1);
-        //tvtalk1 = (TextView) findViewById(R.id.tvtalk1);
-       // tvtalk1.setText("nihao"+ value);  
-        //TextView usernameTxt = (TextView)this.findViewById(R.id.txt_username);
-        //usernameTxt.setText(R.string.username);
         tvLive = findViewById(R.id.tvLive);
         tvSearch = findViewById(R.id.tvSearch);
         tvSetting = findViewById(R.id.tvSetting);
