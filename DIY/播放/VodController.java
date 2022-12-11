@@ -496,8 +496,8 @@ public class VodController extends BaseController {
         mPlayerTimeResetBtn.setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-              //  myHandle.removeCallbacks(myRunnable);
-               // myHandle.postDelayed(myRunnable, myHandleSeconds);
+              myHandle.removeCallbacks(myRunnable);
+              myHandle.postDelayed(myRunnable, myHandleSeconds);
                 try {
                     mPlayerConfig.put("et", 90);
                     mPlayerConfig.put("st", 90);
