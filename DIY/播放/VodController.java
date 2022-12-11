@@ -491,6 +491,21 @@ public class VodController extends BaseController {
                 }
             }
         });
+        
+        mPlayerTimeResetBtn.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                try {
+                    mPlayerConfig.put("st", 90);
+                    mPlayerConfig.put("et", 90);
+                    updatePlayerCfgView();
+                    listener.updatePlayerCfg();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        });     
       
         mPlayerTimeStartBtn.setOnClickListener(new OnClickListener() {
             @Override
