@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:focusable="false"
-   
+            android:text="梧桐更兼细雨，到黄昏、点点滴滴。"      
             android:focusableInTouchMode="false"
             android:gravity="left|bottom"
             android:textAlignment="gravity"
