@@ -77,6 +77,7 @@ import java.net.URL;
 import org.json.JSONObject;
 import java.io.InputStream;
 import java.io.StringWriter;
+import android.os.Bundle;
 
 import me.jessyan.autosize.utils.AutoSizeUtils;
 
@@ -85,7 +86,7 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout contentLayout;
     private TextView tvDate;
     private TextView tvName;
-    private TextView tvtalk;
+    private TextView tvtalk1;
     private TvRecyclerView mGridView;
     private NoScrollViewPager mViewPager;
     private SourceViewModel sourceViewModel;
@@ -114,6 +115,12 @@ public class HomeActivity extends BaseActivity {
             mHandler.postDelayed(this, 1000);
         }
     };
+       
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        tvtalk1 = (TextView) findViewById(R.id.tvtalk);
+    }
     
     private void sendRequestWithHttpClient() {
         new Thread(new Runnable() {
@@ -142,14 +149,14 @@ public class HomeActivity extends BaseActivity {
                          String result = writer.toString();
                          JSONObject jsonObject = new JSONObject(result);
                          String value = jsonObject.optString("hitokoto");
-                         ((TextView) findViewById(R.id.tvtalk)).setText(value);                   
+                         tvtalk1.setText(value);                   
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }).start();
-};
+    }
     
     @Override
     protected int getLayoutResID() {
@@ -173,12 +180,10 @@ public class HomeActivity extends BaseActivity {
         initData();
     }
 
-    private void initView() {
-      
+    private void initView() {    
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
-        this.tvtalk = findViewById(R.id.tvtalk);
         this.contentLayout = findViewById(R.id.contentLayout);
         this.mGridView = findViewById(R.id.mGridView);
         this.mViewPager = findViewById(R.id.mViewPager);
