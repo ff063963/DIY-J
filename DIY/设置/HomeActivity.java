@@ -128,7 +128,7 @@ public class HomeActivity extends BaseActivity {
                          String result = writer.toString();
                          JSONObject jsonObject = new JSONObject(result);
                          String value = jsonObject.optString("hitokoto");
-                         tvtalk.setText(value);                     
+                         ((TextView) findViewById(R.id.tvtalk)).setText(value);                   
                     } 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -172,7 +172,6 @@ public class HomeActivity extends BaseActivity {
     }
 
     private void initView() {
-//tvtalk = (TextView) tvtalk.findViewById(R.id.tvtalk);
       
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
