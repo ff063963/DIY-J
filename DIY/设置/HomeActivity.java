@@ -101,41 +101,7 @@ public class HomeActivity extends BaseActivity {
     private Handler mHandler = new Handler();
     private long mExitTime = 0;
   
-  private void sendRequestWithHttpClient() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String url1 = "https://v1.hitokoto.cn?c=i";
-                    URL url = new URL(url1);
-                    //得到connection对象。
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    //设置请求方式
-                    connection.setRequestMethod("GET");
-                    //连接
-                    connection.connect();
-                    //得到响应码
-                    int responseCode = connection.getResponseCode();
-                    if (responseCode == HttpURLConnection.HTTP_OK) {
-                        //得到响应流
-                        InputStream inputStream = connection.getInputStream();
-                        //将响应流转换成字符串
-                         //String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-                         //String result = is2String(inputStream);//将流转换为字符串。
-
-                         StringWriter writer = new StringWriter();
-                         IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8.name());
-                         String result = writer.toString();
-                         JSONObject jsonObject = new JSONObject(result);
-                         String value = jsonObject.optString("hitokoto");
-                         ((TextView) findViewById(R.id.tvtalk)).setText(value);                   
-                    } 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-};
+  
   
     private Runnable mRunnable = new Runnable() {
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -283,6 +249,41 @@ public class HomeActivity extends BaseActivity {
         setLoadSir(this.contentLayout);
         //mHandler.postDelayed(mFindFocus, 500);
     }
+private void sendRequestWithHttpClient() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String url1 = "https://v1.hitokoto.cn?c=i";
+                    URL url = new URL(url1);
+                    //得到connection对象。
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    //设置请求方式
+                    connection.setRequestMethod("GET");
+                    //连接
+                    connection.connect();
+                    //得到响应码
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == HttpURLConnection.HTTP_OK) {
+                        //得到响应流
+                        InputStream inputStream = connection.getInputStream();
+                        //将响应流转换成字符串
+                         //String result = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+                         //String result = is2String(inputStream);//将流转换为字符串。
+
+                         StringWriter writer = new StringWriter();
+                         IOUtils.copy(inputStream, writer, StandardCharsets.UTF_8.name());
+                         String result = writer.toString();
+                         JSONObject jsonObject = new JSONObject(result);
+                         String value = jsonObject.optString("hitokoto");
+                         ((TextView) findViewById(R.id.tvtalk)).setText(value);                   
+                    } 
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+}
 
     private void initViewModel() {
         sourceViewModel = new ViewModelProvider(this).get(SourceViewModel.class);
