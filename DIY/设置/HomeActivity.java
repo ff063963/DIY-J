@@ -116,13 +116,7 @@ public class HomeActivity extends BaseActivity {
         }
     };
        
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        tvtalk1 = (TextView) findViewById(R.id.tvtalk);
-    }
-    
-    private void sendRequestWithHttpClient() {
+      private void sendRequestWithHttpClient() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -156,6 +150,12 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         }).start();
+    };
+    
+        @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        tvtalk1 = (TextView) findViewById(R.id.tvtalk);
     }
     
     @Override
