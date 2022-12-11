@@ -152,11 +152,11 @@ public class HomeActivity extends BaseActivity {
         }).start();
     };
     
-        @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        tvtalk1 = (TextView) findViewById(R.id.tvtalk);
-    }
+//         @Override
+//     protected void onCreate(Bundle savedInstanceState) {
+//         super.onCreate(savedInstanceState);
+//         tvtalk1 = (TextView) findViewById(R.id.tvtalk);
+//     }
     
     @Override
     protected int getLayoutResID() {
@@ -180,7 +180,8 @@ public class HomeActivity extends BaseActivity {
         initData();
     }
 
-    private void initView() {    
+    private void initView() {  
+        tvtalk1 = (TextView) findViewById(R.id.tvtalk);
         this.topLayout = findViewById(R.id.topLayout);
         this.tvDate = findViewById(R.id.tvDate);
         this.tvName = findViewById(R.id.tvName);
